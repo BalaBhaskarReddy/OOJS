@@ -74,11 +74,18 @@ console.log(mycat.__proto__.__proto__.__proto__); // null, Object.prototype.__pr
 
 console.log("====================Array question =============================")
 
-//var months = ['jan', 'feb', 'mar'];
+var months = ['jan', 'feb', 'mar'];
 //var months = Boolean(true);
 //var months = new Date();
-var months = new String("dfsa");
+//var months = new String("dfsa");
 console.log(months.constructor);  // Array()
 console.log(months.__proto__); 
 console.log(months.constructor.prototype);
 console.log(months.constructor.prototype.__proto__);
+
+
+console.log(Function.prototype.__proto__);
+console.log(Function.prototype.constructor);
+console.log(Object.prototype.constructor);
+console.log(Cat.prototype.__proto__);
+console.log(mycat.__proto__.constructor);

@@ -16,3 +16,16 @@ console.log(Person.prototype.__proto__ === Object.prototype);  // true
 console.log(Object.prototype);  // Object {}
    // The prototype chain is:
    //    Person -> Object -> null
+
+var give_p = function () {
+	// do what new does
+	var o = {};
+	o.__proto__ = arguments[0].prototype;
+	arguments[0].apply(o, arguments[1]);
+	return o;
+}
+
+var p2 = give_p(Person, ['Ram', 3]);
+// Check prototype
+console.log(p2.__proto__ === Person.prototype); // true
+console.log(p2); // true

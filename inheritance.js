@@ -12,7 +12,7 @@ function Student(name, age, school) {
    Person.call(this, name, age);  // Call Person function with this and arguments
    this.school = school || "";
 }
-//Student.prototype = Object.create(Person.prototype)
+
 Student.prototype.__proto__ = Person.prototype
       // Set the prototype chain to a Person object
       // The prototype chain is: Student -> Person -> Object -> null
@@ -22,7 +22,8 @@ function UndergraduateStudent(name, age, school, year) {
    Student.call(this, name, age, school);  // Call Student function with this and arguments
    this.year = year || "";
 }
-UndergraduateStudent.prototype = Object.create(Student.prototype)
+// UndergraduateStudent.prototype = Object.create(Student.prototype)
+UndergraduateStudent.prototype.__proto__ = Student.prototype
       // Set the prototype chain to a Student object
       // The prototype chain is: UndergraduateStudent -> Student -> Person -> Object -> null
  
@@ -42,3 +43,5 @@ console.log(peter);  // UndergraduateStudent {name: "peter", age: 21, school: "E
 console.log(peter.incAge());                 // 22 (inherited from Person)
 console.log('incAge' in peter);              // true
 console.log(peter.hasOwnProperty('incAge')); // false (inherited, NOT own property)
+
+console.log(JSON.stringify(peter));
